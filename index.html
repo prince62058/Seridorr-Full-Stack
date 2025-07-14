@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidorr - Seamless Services, Delivered Instantly</title>
+    <meta name="description" content="Book trusted professionals for salon, cleaning, repairs, and more with ease.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-tools"></i>
+                <span>Servidorr</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner-dots">
+                    <div class="dot dot1"></div>
+                    <div class="dot dot2"></div>
+                    <div class="dot dot3"></div>
+                </div>
+            </div>
+            <p class="loading-text">Loading your services...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-tools"></i>
+                <span>Servidorr</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/services.html">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item" id="loginNavItem">
+                        <a class="nav-link" href="pages/login.html">Login</a>
+                    </li>
+                    <li class="nav-item dropdown" id="userProfileNavItem" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i>
+                            <span id="userNameDisplay">Profile</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/profile.html">
+                                <i class="fas fa-user"></i> My Profile
+                            </a></li>
+                            <li><a class="dropdown-item" href="pages/orders.html">
+                                <i class="fas fa-shopping-bag"></i> My Orders
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-video-container">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                class="hero-background-video" 
+                id="heroVideo" 
+                preload="metadata"
+                poster=""
+                controls="false">
+                <source src="attached_assets/4488719-uhd_4096_2160_25fps_1752222493506.mp4" type="video/mp4">
+                <source src="assets/videos/cleaning-service.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+        <div class="hero-text-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6 text-start" data-aos="fade-left" data-aos-duration="1000">
+                    <h1 class="hero-title">
+                        <span class="text-primary">Book trusted professionals</span><br>
+                        for your home services
+                    </h1>
+                    <div class="hero-buttons mt-4">
+                        <a href="pages/services.html" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-search"></i> Browse Services
+                        </a>
+                        <a href="pages/services.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section id="services" class="service-categories py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="section-header text-center mb-5">
+                        <h2 class="section-title">Explore Service Categories</h2>
+                        <p class="section-subtitle">Choose from our wide range of professional services</p>
+                        <div class="section-divider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Filter -->
+            <div class="row mb-4">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-filter text-center">
+                        <button class="filter-btn active" data-filter="all">All Services</button>
+                        <button class="filter-btn" data-filter="home">Home Services</button>
+                        <button class="filter-btn" data-filter="beauty">Beauty & Wellness</button>
+                        <button class="filter-btn" data-filter="repair">Repairs</button>
+                        <button class="filter-btn" data-filter="cleaning">Cleaning</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-grid">
+                <!-- Leaky Faucet Repair -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/faucet_images.png" alt="Leaky Faucet Repair">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Leaky Faucet Repair</h3>
+                            <p class="service-description">Fix minor leaks in faucets and pipes</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (90 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹50</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Water Heater -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/water_heater.png" alt="Water Heater">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Water Heater</h3>
+                            <p class="service-description">Install new water heater systems in homes</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (60 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fan Installation -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/fan_image.png" alt="Fan Installation">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Fan</h3>
+                            <p class="service-description">Install and replace ceiling fans and lighting</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.6 (80 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹75</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Switchboard Repair -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="450">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/services/switches_images.png" alt="Switchboard Repair">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Switchboard Repair</h3>
+                            <p class="service-description">Repair faulty switchboards and electrical outlets</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (65 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹50</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Full Home Cleaning -->
+                <div class="service-item" data-category="cleaning" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://www.balajicleaningagency.com/img/service/Untitled-02.jpg" alt="Full Home Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Full Home Cleaning</h3>
+                            <p class="service-description">Deep cleaning of the entire house, including floors and surfaces</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (120 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bathroom Deep Cleaning -->
+                <div class="service-item" data-category="cleaning" data-aos="fade-up" data-aos-delay="550">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/services/toilet_seat_image.png" alt="Bathroom Deep Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Bathroom</h3>
+                            <p class="service-description">Deep cleaning of bathroom surfaces, tiles, and fixtures</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (95 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹75</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Haircut and Styling -->
+                <div class="service-item" data-category="beauty" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/barbar_image.png" alt="Haircut and Styling">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Haircut and Styling</h3>
+                            <p class="service-description">Professional hairstyling and haircuts at home</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.6 (85 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹50</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full Body Massage -->
+                <div class="service-item" data-category="beauty" data-aos="fade-up" data-aos-delay="650">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/services/massage_images.png" alt="Full Body Massage">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Full Body Massage</h3>
+                            <p class="service-description">Relaxing full body massage therapy at home</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (70 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AC Repair -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="assets/ac_image.png" alt="AC Repair">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">AC Repair</h3>
+                            <p class="service-description">Fix and service air conditioning units</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.6 (70 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹75</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kitchen Chimney Cleaning -->
+                <div class="service-item" data-category="cleaning" data-aos="fade-up" data-aos-delay="750">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/401808890/WR/UK/BU/14823340/kitchen-chimney-cleaning-service.jpg" alt="Kitchen Chimney Cleaning">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Kitchen Chimney Cleaning</h3>
+                            <p class="service-description">Deep cleaning of kitchen chimneys to remove grease and soot</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (85 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pest Control (Cockroach) -->
+                <div class="service-item" data-category="home" data-aos="fade-up" data-aos-delay="800">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/67a9ce46c35314001d3a5c28.jpg" alt="Pest Control Cockroach">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Pest Control (Cockroach)</h3>
+                            <p class="service-description">Treatment to remove cockroaches from home</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (110 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹150</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pest Control (Termite) -->
+                <div class="service-item" data-category="home" data-aos="fade-up" data-aos-delay="850">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://www.getpestcontrol.in/wp-content/uploads/2020/11/termite-pest-control-1.jpg" alt="Pest Control Termite">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Pest Control (Termite)</h3>
+                            <p class="service-description">Termite control service with safe chemicals</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (100 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹200</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AC Service -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="900">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://static.wixstatic.com/media/ade29c_24e1ba8f67a241b5a6a44f04a96fdbd0~mv2.png/v1/fill/w_556,h_366,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/ade29c_24e1ba8f67a241b5a6a44f04a96fdbd0~mv2.png" alt="AC Service">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">AC Service</h3>
+                            <p class="service-description">Routine service of window and split AC units</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (130 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refrigerator Repair -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="950">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://www.revampservice.com/web-assets/images/fridge-repair1.jpg" alt="Refrigerator Repair">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Refrigerator Repair</h3>
+                            <p class="service-description">Servicing and minor repairs of refrigerators</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.6 (100 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geyser Installation -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://www.jaquar.com/images/uploaded/4%20innovative/10%20steps%20to%20install%20water%20heater%20yourself/image4.jpg" alt="Geyser Installation">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Geyser Installation</h3>
+                            <p class="service-description">Installing new water geyser systems</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (80 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CCTV Installation -->
+                <div class="service-item" data-category="home" data-aos="fade-up" data-aos-delay="1050">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://www.raypid.com/assets/images/cctvcaminstall.jpg" alt="CCTV Installation">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">CCTV Installation</h3>
+                            <p class="service-description">Installation of CCTV cameras for home security</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (65 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹250</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Repair -->
+                <div class="service-item" data-category="repair" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://static.vecteezy.com/system/resources/previews/017/153/701/non_2x/technician-repairing-inside-of-mobile-phone-integrated-circuit-the-concept-of-data-hardware-technology-photo.jpg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Mobile Repair</h3>
+                            <p class="service-description">Mobile device repair and screen replacement</p>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (85 reviews)</span>
+                            </div>
+                            <div class="service-price">Visit Price: <span class="price">₹100</span></div>
+                            <a href="pages/services.html" class="btn btn-primary btn-sm">View Sub-Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="800">
+                    <a href="#" class="btn btn-primary btn-lg">View All Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promotional-banner py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="promo-content">
+                        <div class="promo-badge animate-pulse">Limited Time Offer</div>
+                        <h2 class="promo-title animate-slide-up">Flat 30% Off All Services!</h2>
+                        <p class="promo-description animate-fade-in">Don't miss this exclusive discount! Book your services today and save big on all our professional services.</p>
+                        <div class="countdown-timer animate-bounce-in" id="countdownTimer">
+                            <div class="timer-item">
+                                <span class="timer-value" id="days">27</span>
+                                <span class="timer-label">Days</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="hours">23</span>
+                                <span class="timer-label">Hours</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="minutes">59</span>
+                                <span class="timer-label">Minutes</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="seconds">58</span>
+                                <span class="timer-label">Seconds</span>
+                            </div>
+                        </div>
+                        <a href="pages/services.html" class="btn btn-primary btn-lg promo-btn animate-button-hover">
+                            <i class="fas fa-calendar"></i> Book Now & Save 30%
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="promo-image business-owner-container">
+                        <img src="attached_assets/young-business-owner-opening-his-shop_1752223588503.jpg" alt="Young Business Owner Opening Shop" class="img-fluid rounded-4 business-owner-image animate-float">
+                        <div class="open-sign-overlay animate-glow">
+                            <span class="open-text">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services -->
+    <section class="premium-services py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="section-header text-center mb-5">
+                        <h2 class="section-title">Our Premium Services</h2>
+                        <p class="section-subtitle">Professional services with guaranteed satisfaction</p>
+                        <div class="section-divider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Tabs -->
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                    <ul class="nav nav-tabs service-tabs justify-content-center" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#cleaning-services">
+                                <i class="fas fa-broom"></i> Cleaning Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#plumbing-services">
+                                <i class="fas fa-wrench"></i> Plumbing Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#electrical-services">
+                                <i class="fas fa-bolt"></i> Electrical Services
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service Tab Content -->
+            <div class="tab-content mt-5">
+                <!-- Cleaning Services -->
+                <div class="tab-pane fade show active" id="cleaning-services">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://www.balajicleaningagency.com/img/service/Untitled-02.jpg" alt="Full Home Cleaning">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Full Home Cleaning</h4>
+                                    <p>Complete house cleaning service</p>
+                                    <div class="service-price">₹899</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://www.southernliving.com/thmb/FYfR4gtrruf5ENcg9-PZXARRKX4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1224808645-8c50b5d0099e4eb8a8d591321787237b.jpg" alt="Bathroom Cleaning">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Bathroom Deep Clean</h4>
+                                    <p>Thorough bathroom sanitization</p>
+                                    <div class="service-price">₹399</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/YG/CZ/JS/70085217/kitchen-deep-cleaning-1.jpeg" alt="Kitchen Cleaning">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Kitchen Deep Clean</h4>
+                                    <p>Complete kitchen sanitization</p>
+                                    <div class="service-price">₹599</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://safaiwale.in/wp-content/uploads/2020/01/furniture-cleaning-vacuum-cleaner.jpg" alt="Sofa Cleaning">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Sofa Shampooing</h4>
+                                    <p>Professional upholstery cleaning</p>
+                                    <div class="service-price">₹499</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plumbing Services -->
+                <div class="tab-pane fade" id="plumbing-services">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://www.thespruce.com/thmb/CNYzJeTNbn8vF1WnZCpyB1tpYXE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/fix-a-leaky-faucet-4103580_compression_01_handle_5188-1713b6c2aa2c4c0aaa6f2bc8e8665ea1.jpg" alt="Leaky Faucet Repair">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Leaky Faucet Repair</h4>
+                                    <p>Quick faucet repair service</p>
+                                    <div class="service-price">₹299</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://ehretco.com/wp-content/uploads/2022/10/4-Reasons-Water-Heater-Repair-Replacement-May-Improve-Your-Familys-Health-water-heater-repair-replacement-Ehret-Plumbing-Heating-1024x683.jpg" alt="Water Heater">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Water Heater Repair</h4>
+                                    <p>Professional water heater service</p>
+                                    <div class="service-price">₹799</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://as2.ftcdn.net/jpg/03/99/91/99/1000_F_399919994_0LwGrRWaOeMBemCoxouyv7n5YMGapp9f.jpg" alt="Pipe Installation">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Pipe Installation</h4>
+                                    <p>New pipe installation service</p>
+                                    <div class="service-price">₹899</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://blog.acmetools.com/wp-content/uploads/2016/05/Drain-Cleaning.jpg" alt="Drain Cleaning">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Drain Cleaning</h4>
+                                    <p>Professional drain unblocking</p>
+                                    <div class="service-price">₹599</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Electrical Services -->
+                <div class="tab-pane fade" id="electrical-services">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="assets/fan_image.png" alt="Fan Installation">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Fan Installation</h4>
+                                    <p>Ceiling fan installation service</p>
+                                    <div class="service-price">₹699</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://assistor.in/uploads/services/22.jpg" alt="Switchboard Repair">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Switchboard Repair</h4>
+                                    <p>Electrical panel maintenance</p>
+                                    <div class="service-price">₹799</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://erieit.edu/wp-content/uploads/volt-watt-amp-electrical-metrics.jpg" alt="Wiring Installation">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Wiring Installation</h4>
+                                    <p>Complete electrical wiring</p>
+                                    <div class="service-price">₹899</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="premium-service-card">
+                                <div class="service-image">
+                                    <img src="https://images.lightsonline.com/marketing/content/light-fixture-replacement.webp" alt="Light Fixture">
+                                </div>
+                                <div class="service-content">
+                                    <h4>Light Fixture Setup</h4>
+                                    <p>Professional lighting installation</p>
+                                    <div class="service-price">₹599</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-content">
+                        <h2 class="section-title">Why Choose Servidorr?</h2>
+                        <p class="section-subtitle">We connect you with trusted professionals for all your service needs</p>
+                        
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Trusted Professionals</h4>
+                                    <p>All our service providers are vetted and verified for quality assurance</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>24/7 Support</h4>
+                                    <p>Round-the-clock customer support for all your service needs</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Competitive Pricing</h4>
+                                    <p>Get the best value for your money with transparent pricing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-image-3d">
+                        <!-- 3D Service Icons Container -->
+                        <div class="services-3d-container">
+                            <div class="services-3d-bg">
+                                <div class="bg-shape bg-shape-1"></div>
+                                <div class="bg-shape bg-shape-2"></div>
+                                <div class="bg-shape bg-shape-3"></div>
+                            </div>
+                            
+                            <!-- Floating Service Icons -->
+                            <div class="floating-icon icon-1" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="floating-icon icon-2" data-aos="zoom-in" data-aos-delay="300">
+                                <i class="fas fa-broom"></i>
+                            </div>
+                            <div class="floating-icon icon-3" data-aos="zoom-in" data-aos-delay="400">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="floating-icon icon-4" data-aos="zoom-in" data-aos-delay="500">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <div class="floating-icon icon-5" data-aos="zoom-in" data-aos-delay="600">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <div class="floating-icon icon-6" data-aos="zoom-in" data-aos-delay="700">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                            
+                            <!-- Central Logo -->
+                            <div class="central-logo" data-aos="pulse" data-aos-delay="800">
+                                <div class="logo-circle">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Servidorr</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Animated Particles -->
+                            <div class="particle particle-1"></div>
+                            <div class="particle particle-2"></div>
+                            <div class="particle particle-3"></div>
+                            <div class="particle particle-4"></div>
+                            <div class="particle particle-5"></div>
+                            <div class="particle particle-6"></div>
+                        </div>
+                        
+                        <!-- Stats Cards with 3D effect -->
+                        <div class="about-stats-3d">
+                            <div class="stat-card-3d" data-aos="flip-left" data-aos-delay="1000">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Customer Satisfaction</div>
+                                <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                            </div>
+                            <div class="stat-card-3d" data-aos="flip-right" data-aos-delay="1100">
+                                <div class="stat-number">10K+</div>
+                                <div class="stat-label">Services Completed</div>
+                                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="section-header text-center mb-5">
+                        <h2 class="section-title">Contact Us</h2>
+                        <p class="section-subtitle">Do you have any queries or suggestions? info@frienchtech.com</p>
+                        <div class="section-divider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Our Location</h4>
+                                <p>123 Service Street<br>City, State 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>If you need support? Just give us a call</h4>
+                                <p>+0755 461 1870</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Email Us</h4>
+                                <p>info@frienchtech.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input type="text" class="form-control" placeholder="Subject" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <h3><i class="fas fa-tools"></i> Servidorr</h3>
+                        <p>Your trusted partner for all home service needs. We connect you with verified professionals for quality service delivery.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Plumbing</a></li>
+                        <li><a href="#">Electrical</a></li>
+                        <li><a href="#">Cleaning</a></li>
+                        <li><a href="#">Beauty</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Contact Info</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +917554611870</li>
+                        <li><i class="fas fa-envelope"></i>info@frienchtech.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i>Mansarover Complex
+
+                        Bhopal, Madhya Pradesh</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 Servidorr. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/animations.js"></script>
+</body>
+</html>
