@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.9,
                 reviews: 120,
-                image: '../assets/services/kitchen_cleaning.svg',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2024/3/401808890/WR/UK/BU/14823340/kitchen-chimney-cleaning-service.jpg" alt="Kitchen Chimney Cleaning',
                 category: 'cleaning',
                 features: ['Eco-friendly products', 'Appliance cleaning', 'Deep sanitization', 'Grease removal'],
                 duration: '3-4 hours'
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 75,
                 rating: 4.8,
                 reviews: 95,
-                image: '../assets/services/bathroom_cleaning.svg',
+                image: 'https://www.southernliving.com/thmb/FYfR4gtrruf5ENcg9-PZXARRKX4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1224808645-8c50b5d0099e4eb8a8d591321787237b.jpg',
                 category: 'cleaning',
                 features: ['Tile cleaning', 'Fixture polishing', 'Drain cleaning', 'Sanitization'],
                 duration: '2-3 hours'
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.7,
                 reviews: 85,
-                image: '../assets/services/chimney_cleaning.svg',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2024/3/401808890/WR/UK/BU/14823340/kitchen-chimney-cleaning-service.jpg',
                 category: 'cleaning',
                 features: ['Grease removal', 'Filter cleaning', 'Motor servicing', 'Performance improvement'],
                 duration: '2-3 hours'
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 150,
                 rating: 4.7,
                 reviews: 110,
-                image: '../assets/services/pest_cockroach.svg',
+                image: 'https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/67a9ce46c35314001d3a5c28.jpg',
                 category: 'home',
                 features: ['Safe chemicals', 'Long-lasting effect', 'All areas covered', '3 months warranty'],
                 duration: '2-4 hours'
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 200,
                 rating: 4.9,
                 reviews: 100,
-                image: '../assets/services/pest_termite.svg',
+                image: 'https://www.getpestcontrol.in/wp-content/uploads/2020/11/termite-pest-control-1.jpg',
                 category: 'home',
                 features: ['Pre-construction treatment', 'Post-construction care', 'Chemical barrier', '5 years warranty'],
                 duration: '4-6 hours'
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.8,
                 reviews: 130,
-                image: '../assets/services/ac_service.svg',
+                image: 'https://static.wixstatic.com/media/ade29c_24e1ba8f67a241b5a6a44f04a96fdbd0~mv2.png/v1/fill/w_556,h_366,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/ade29c_24e1ba8f67a241b5a6a44f04a96fdbd0~mv2.png',
                 category: 'repair',
                 features: ['Filter cleaning', 'Gas check', 'Coil cleaning', 'Performance optimization'],
                 duration: '1-2 hours'
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.6,
                 reviews: 100,
-                image: '../assets/services/fridge_repair.svg',
+                image: 'https://www.revampservice.com/web-assets/images/fridge-repair1.jpg',
                 category: 'repair',
                 features: ['Cooling check', 'Component repair', 'Gas refilling', 'Temperature calibration'],
                 duration: '2-3 hours'
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.7,
                 reviews: 80,
-                image: '../assets/services/geyser_installation.svg',
+                image: 'https://www.jaquar.com/images/uploaded/4%20innovative/10%20steps%20to%20install%20water%20heater%20yourself/image4.jpg',
                 category: 'repair',
                 features: ['Professional installation', 'Safety valve setup', 'Plumbing connection', 'Testing included'],
                 duration: '2-3 hours'
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 250,
                 rating: 4.8,
                 reviews: 65,
-                image: '../assets/services/cctv_installation.svg',
+                image: 'https://www.raypid.com/assets/images/cctvcaminstall.jpg',
                 category: 'home',
                 features: ['HD cameras', 'Night vision', 'Mobile app setup', 'Storage configuration'],
                 duration: '4-6 hours'
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.7,
                 reviews: 85,
-                image: '../assets/services/mobile_repair.svg',
+                image: 'https://static.vecteezy.com/system/resources/previews/017/153/701/non_2x/technician-repairing-inside-of-mobile-phone-integrated-circuit-the-concept-of-data-hardware-technology-photo.jpg',
                 category: 'repair',
                 features: ['Screen replacement', 'Software issues', 'Hardware repair', 'Data recovery'],
                 duration: '1-3 hours'
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 120,
                 rating: 4.5,
                 reviews: 75,
-                image: '../assets/services/ac_gas_filling.svg',
+                image: 'https://ajmeracservice.com/wp-content/uploads/2023/07/ac-gas-filling-ajmer-city.jpg',
                 category: 'repair',
                 features: ['Gas level check', 'Leak detection', 'Quality refrigerant', 'Performance testing'],
                 duration: '1-2 hours'
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 80,
                 rating: 4.6,
                 reviews: 60,
-                image: '../assets/services/curtain_cleaning.svg',
+                image: 'https://thehealthyhome.me/img/e2b70d79-fd7f-4069-be28-09955ffb3250/curtain-cleaning-blinds-service.jpg?fm=jpg&q=80&fit=max&crop=2000%2C1333%2C0%2C0',
                 category: 'cleaning',
                 features: ['Fabric care', 'Stain removal', 'Fresh fragrance', 'Dry cleaning option'],
                 duration: '2-3 hours'
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 90,
                 rating: 4.7,
                 reviews: 45,
-                image: '../assets/services/doorbell_installation.svg',
+                image: 'https://i.ytimg.com/vi/TwPS46AZy2o/maxresdefault.jpg',
                 category: 'home',
                 features: ['Smart connectivity', 'Video recording', 'Mobile alerts', 'Wiring setup'],
                 duration: '1-2 hours'
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 80,
                 rating: 4.5,
                 reviews: 90,
-                image: '../assets/services/geyser_repair.svg',
+                image: 'https://servicecenterinbhopal.com/sstadmin/uploads/gyser.png',
                 category: 'repair',
                 features: ['Element replacement', 'Thermostat check', 'Safety valve repair', 'Temperature calibration'],
                 duration: '1-2 hours'
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 200,
                 rating: 4.8,
                 reviews: 55,
-                image: '../assets/services/inverter_installation.svg',
+                image: 'https://media.gettyimages.com/id/547270790/video/workers-assemble-solar-inverters-on-a-production-line-of-the-su-kam-power-systems-ltd-factory.jpg?s=640x640&k=20&c=bya9mLwtKaTrQpNKbC8ijTABI1cBlHzgFLyy6zY-lHM=',
                 category: 'home',
                 features: ['Battery connection', 'Load calculation', 'Safety wiring', 'Testing included'],
                 duration: '3-4 hours'
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 90,
                 rating: 4.6,
                 reviews: 80,
-                image: '../assets/services/mattress_cleaning.svg',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2021/11/QI/ZJ/BB/142132883/mattress-cleaning-service.jpg',
                 category: 'cleaning',
                 features: ['Dust mite removal', 'Stain cleaning', 'Sanitization', 'Odor elimination'],
                 duration: '2-3 hours'
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 85,
                 rating: 4.4,
                 reviews: 65,
-                image: '../assets/services/microwave_repair.svg',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2021/4/YK/DV/CM/127247163/microwave-oven-repair-services-500x500.jpg',
                 category: 'repair',
                 features: ['Component diagnosis', 'Magnetron repair', 'Door seal check', 'Safety testing'],
                 duration: '1-2 hours'
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 120,
                 rating: 4.7,
                 reviews: 95,
-                image: '../assets/services/sofa_shampooing.svg',
+                image: 'https://safaiwale.in/wp-content/uploads/2020/01/furniture-cleaning-vacuum-cleaner.jpg',
                 category: 'cleaning',
                 features: ['Deep fabric cleaning', 'Stain removal', 'Quick drying', 'Fabric protection'],
                 duration: '2-4 hours'
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 100,
                 rating: 4.6,
                 reviews: 110,
-                image: '../assets/services/washing_machine_repair.svg',
+                image: 'https://sewamitra.up.gov.in/Upload/Service/c3b1c209-344a-4c59-ae2c-ec81fd171b55_.jpg',
                 category: 'repair',
                 features: ['Drum cleaning', 'Motor repair', 'Pipe checking', 'Performance optimization'],
                 duration: '2-3 hours'
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 150,
                 rating: 4.8,
                 reviews: 70,
-                image: '../assets/services/water_tank_cleaning.svg',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2024/5/421841948/DJ/PQ/SL/41677061/domestic-water-tank-cleaning-service.jpg',
                 category: 'cleaning',
                 features: ['Complete drainage', 'Scrubbing & cleaning', 'Disinfection', 'Quality testing'],
                 duration: '3-5 hours'
