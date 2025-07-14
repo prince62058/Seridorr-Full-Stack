@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 75,
                 rating: 4.6,
                 reviews: 70,
-                image: '../assets/ac_image.png',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2022/1/MV/DV/GX/144990520/new-product-500x500.jpeg',
                 category: 'repair',
                 features: ['Complete diagnosis', 'Gas refilling', 'Filter cleaning', 'Performance check'],
                 duration: '2-3 hours'
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 120,
                 rating: 4.5,
                 reviews: 75,
-                image: 'https://ajmeracservice.com/wp-content/uploads/2023/07/ac-gas-filling-ajmer-city.jpg',
+                image: 'https://img.clevup.in/298336/1707333809053_SKU-0005_2.jpg?width=600&format=webp',
                 category: 'repair',
                 features: ['Gas level check', 'Leak detection', 'Quality refrigerant', 'Performance testing'],
                 duration: '1-2 hours'
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 80,
                 rating: 4.5,
                 reviews: 90,
-                image: 'https://servicecenterinbhopal.com/sstadmin/uploads/gyser.png',
+                image: 'https://5.imimg.com/data5/SELLER/Default/2024/6/428494145/PW/WN/EN/224054708/geyser-repair-service-500x500.jpg',
                 category: 'repair',
                 features: ['Element replacement', 'Thermostat check', 'Safety valve repair', 'Temperature calibration'],
                 duration: '1-2 hours'
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 price: 85,
                 rating: 4.4,
                 reviews: 65,
-                image: 'https://5.imimg.com/data5/SELLER/Default/2021/4/YK/DV/CM/127247163/microwave-oven-repair-services-500x500.jpg',
+                image: 'https://vraservicecare.businesswebsite.in/wp-content/uploads/2023/10/Microwave-oven-repair-and-service.jpg',
                 category: 'repair',
                 features: ['Component diagnosis', 'Magnetron repair', 'Door seal check', 'Safety testing'],
                 duration: '1-2 hours'
