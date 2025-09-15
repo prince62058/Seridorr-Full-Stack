@@ -84,6 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
             heroVideo.loop = true;
             heroVideo.playsInline = true;
             heroVideo.controls = false;
+            heroVideo.preload = 'auto';
+            
+            // Add error handling
+            heroVideo.addEventListener('error', (e) => {
+                console.error('Video error:', e);
+                // Hide video container if error occurs
+                document.querySelector('.hero-video-container').style.display = 'none';
+            });
             
             updateDebugInfo('Video initialized with properties');
             
