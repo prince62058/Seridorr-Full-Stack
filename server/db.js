@@ -1,9 +1,6 @@
-const { Pool, neonConfig } = require('@neondatabase/serverless');
-const { drizzle } = require('drizzle-orm/neon-serverless');
-const ws = require("ws");
+const { neon, neonConfig } = require('@neondatabase/serverless');
+const { drizzle } = require('drizzle-orm/neon-http');
 const schema = require("../shared/schema");
-
-neonConfig.webSocketConstructor = ws;
 
 if (!process.env.DATABASE_URL) {
   throw new Error(
@@ -11,7 +8,10 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const db = drizzle({ client: pool, schema });
+// Optional optimization for connection caching
+neonConfig.fetchConnectionCache = true;
 
-module.exports = { pool, db };
+const sql = neon(process.env.DATABASE_URL);
+const db = drizzle(sql, { schema });
+
+module.exports = { db };

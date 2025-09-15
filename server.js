@@ -30,157 +30,183 @@ app.use((req, res, next) => {
   }
 });
 
-// In-memory data storage for demo purposes
-let services = [
-  {
-    id: 1,
-    name: 'Leaky Faucet Repair',
-    description: 'Fix minor leaks in faucets and pipes',
-    price: 50,
-    category: 'repair',
-    image: '/assets/faucet_images.png',
-    rating: 4.7,
-    reviews: 90,
-    duration: 120,
-    availability: 'available'
-  },
-  {
-    id: 2,
-    name: 'Water Heater Installation',
-    description: 'Install new water heater systems',
-    price: 100,
-    category: 'repair',
-    image: '/assets/water_heater.png',
-    rating: 4.8,
-    reviews: 60,
-    duration: 180,
-    availability: 'available'
-  },
-  {
-    id: 3,
-    name: 'Full Home Cleaning',
-    description: 'Deep cleaning of entire house',
-    price: 100,
-    category: 'cleaning',
-    image: '/assets/cleaning_tools.png',
-    rating: 4.9,
-    reviews: 120,
-    duration: 240,
-    availability: 'available'
-  },
-  {
-    id: 4,
-    name: 'Haircut & Styling',
-    description: 'Professional hairstyling at home',
-    price: 50,
-    category: 'beauty',
-    image: '/assets/barbar_image.png',
-    rating: 4.6,
-    reviews: 85,
-    duration: 120,
-    availability: 'available'
-  },
-  {
-    id: 5,
-    name: 'AC Repair',
-    description: 'Fix and service air conditioning units',
-    price: 75,
-    category: 'repair',
-    image: '/assets/ac_image.png',
-    rating: 4.6,
-    reviews: 70,
-    duration: 180,
-    availability: 'available'
-  }
-];
+// Database storage
+const { storage } = require('./server/storage');
+const { seedDatabase } = require('./server/seed');
 
-let bookings = [];
-let nextBookingId = 1;
+// Helper function to get service images
+function getServiceImage(category, name) {
+  const imageMap = {
+    'Leaky Faucet Repair': '/assets/faucet_images.png',
+    'Water Heater Installation': '/assets/water_heater.png',
+    'Full Home Cleaning': '/assets/cleaning_tools.png',
+    'Haircut & Styling': '/assets/barbar_image.png',
+    'AC Repair': '/assets/ac_image.png',
+    'Fan Installation': '/assets/fan_image.png',
+    'Switchboard Repair': '/assets/services/switches_images.png',
+    'Bathroom Deep Cleaning': '/assets/services/toilet_seat_image.png',
+    'Full Body Massage': '/assets/services/massage_images.png'
+  };
+  
+  return imageMap[name] || '/assets/service1.png';
+}
 
 // API Routes
-app.get('/api/services', (req, res) => {
+app.get('/api/services', async (req, res) => {
   try {
-    res.json(services);
+    const services = await storage.getServices();
+    // Add compatibility fields for frontend
+    const servicesWithCompatibility = services.map(service => ({
+      ...service,
+      price: service.price / 100, // Convert from paise to rupees for display
+      image: getServiceImage(service.category, service.name),
+      rating: 4.5 + Math.random() * 0.5, // Mock rating for now
+      reviews: Math.floor(Math.random() * 100) + 20, // Mock reviews
+      availability: 'available'
+    }));
+    res.json(servicesWithCompatibility);
   } catch (error) {
     console.error('Error fetching services:', error);
     res.status(500).json({ error: 'Failed to fetch services' });
   }
 });
 
-app.get('/api/services/:id', (req, res) => {
+app.get('/api/services/:id', async (req, res) => {
   try {
-    const service = services.find(s => s.id === parseInt(req.params.id));
+    const service = await storage.getService(parseInt(req.params.id));
     if (!service) {
       return res.status(404).json({ error: 'Service not found' });
     }
-    res.json(service);
+    // Add compatibility fields
+    const serviceWithCompatibility = {
+      ...service,
+      price: service.price / 100, // Convert from paise to rupees
+      image: getServiceImage(service.category, service.name),
+      rating: 4.5 + Math.random() * 0.5,
+      reviews: Math.floor(Math.random() * 100) + 20,
+      availability: 'available'
+    };
+    res.json(serviceWithCompatibility);
   } catch (error) {
     console.error('Error fetching service:', error);
     res.status(500).json({ error: 'Failed to fetch service' });
   }
 });
 
-app.post('/api/bookings', (req, res) => {
+app.post('/api/bookings', async (req, res) => {
   try {
     const booking = {
-      id: 'ORD' + Date.now().toString().slice(-6),
+      serviceId: req.body.serviceId,
+      scheduledDate: new Date(req.body.scheduledDate),
+      address: req.body.address,
+      notes: req.body.notes || '',
+      totalAmount: (req.body.totalAmount || 0) * 100, // Convert to paise
+      status: 'confirmed'
+    };
+    
+    const createdBooking = await storage.createBooking(booking);
+    
+    // Format response for frontend compatibility
+    const response = {
+      id: 'ORD' + createdBooking.id.toString().padStart(6, '0'),
       ...req.body,
       status: 'confirmed',
-      createdAt: new Date().toISOString(),
+      createdAt: createdBooking.createdAt,
       estimatedTime: '2-4 hours'
     };
-    bookings.push(booking);
-    res.json(booking);
+    
+    res.json(response);
   } catch (error) {
     console.error('Error creating booking:', error);
     res.status(500).json({ error: 'Failed to create booking' });
   }
 });
 
-app.get('/api/bookings', (req, res) => {
+app.get('/api/bookings', async (req, res) => {
   try {
-    res.json(bookings);
+    const bookings = await storage.getBookings();
+    // Format for frontend compatibility
+    const formattedBookings = bookings.map(booking => ({
+      id: 'ORD' + booking.id.toString().padStart(6, '0'),
+      serviceId: booking.serviceId,
+      scheduledDate: booking.scheduledDate,
+      address: booking.address,
+      notes: booking.notes,
+      status: booking.status,
+      createdAt: booking.createdAt,
+      totalAmount: booking.totalAmount / 100, // Convert from paise
+      estimatedTime: '2-4 hours'
+    }));
+    res.json(formattedBookings);
   } catch (error) {
     console.error('Error fetching bookings:', error);
     res.status(500).json({ error: 'Failed to fetch bookings' });
   }
 });
 
-app.get('/api/bookings/:id', (req, res) => {
+app.get('/api/bookings/:id', async (req, res) => {
   try {
-    const booking = bookings.find(b => b.id === req.params.id);
+    // Parse order ID (remove ORD prefix)
+    const numericId = parseInt(req.params.id.replace('ORD', ''));
+    const booking = await storage.getBooking(numericId);
     if (!booking) {
       return res.status(404).json({ error: 'Booking not found' });
     }
-    res.json(booking);
+    
+    const formattedBooking = {
+      id: 'ORD' + booking.id.toString().padStart(6, '0'),
+      serviceId: booking.serviceId,
+      scheduledDate: booking.scheduledDate,
+      address: booking.address,
+      notes: booking.notes,
+      status: booking.status,
+      createdAt: booking.createdAt,
+      totalAmount: booking.totalAmount / 100,
+      estimatedTime: '2-4 hours'
+    };
+    
+    res.json(formattedBooking);
   } catch (error) {
     console.error('Error fetching booking:', error);
     res.status(500).json({ error: 'Failed to fetch booking' });
   }
 });
 
-app.put('/api/bookings/:id', (req, res) => {
+app.put('/api/bookings/:id', async (req, res) => {
   try {
-    const index = bookings.findIndex(b => b.id === req.params.id);
-    if (index === -1) {
+    const numericId = parseInt(req.params.id.replace('ORD', ''));
+    const updates = { ...req.body };
+    if (updates.totalAmount) {
+      updates.totalAmount = updates.totalAmount * 100; // Convert to paise
+    }
+    
+    const updatedBooking = await storage.updateBooking(numericId, updates);
+    if (!updatedBooking) {
       return res.status(404).json({ error: 'Booking not found' });
     }
-    bookings[index] = { ...bookings[index], ...req.body };
-    res.json(bookings[index]);
+    
+    const formattedBooking = {
+      id: 'ORD' + updatedBooking.id.toString().padStart(6, '0'),
+      serviceId: updatedBooking.serviceId,
+      scheduledDate: updatedBooking.scheduledDate,
+      address: updatedBooking.address,
+      notes: updatedBooking.notes,
+      status: updatedBooking.status,
+      createdAt: updatedBooking.createdAt,
+      totalAmount: updatedBooking.totalAmount / 100,
+      estimatedTime: '2-4 hours'
+    };
+    
+    res.json(formattedBooking);
   } catch (error) {
     console.error('Error updating booking:', error);
     res.status(500).json({ error: 'Failed to update booking' });
   }
 });
 
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
   try {
-    const inquiry = {
-      id: Date.now(),
-      ...req.body,
-      createdAt: new Date().toISOString()
-    };
-    console.log('Contact inquiry received:', inquiry);
+    const inquiry = await storage.createContactInquiry(req.body);
     res.json(inquiry);
   } catch (error) {
     console.error('Error creating contact inquiry:', error);
@@ -209,9 +235,14 @@ app.post('/api/create-payment-intent', async (req, res) => {
   }
 });
 
-// Initialize sample bookings for demo
-function initializeSampleData() {
-  console.log('✅ Sample data initialized with', services.length, 'services');
+// Initialize database with sample data
+async function initializeSampleData() {
+  try {
+    await seedDatabase();
+  } catch (error) {
+    console.error('❌ Database initialization failed:', error);
+    console.log('⚠️  Continuing without database, please check connection');
+  }
 }
 
 // Health check endpoint
@@ -228,12 +259,12 @@ app.get('/', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', async () => {
   console.log(`🚀 Servidorr server running on port ${PORT}`);
   console.log(`📱 Website: http://localhost:${PORT}`);
   
   // Initialize sample data
-  initializeSampleData();
+  await initializeSampleData();
   
   console.log('✅ Server ready to accept connections');
 });
