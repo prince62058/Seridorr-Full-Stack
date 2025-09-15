@@ -1,8 +1,8 @@
-import { pgTable, serial, text, timestamp, varchar, boolean, integer } from 'drizzle-orm/pg-core';
-import { relations } from 'drizzle-orm';
+const { pgTable, serial, text, timestamp, varchar, boolean, integer } = require('drizzle-orm/pg-core');
+const { relations } = require('drizzle-orm');
 
 // Users table
-export const users = pgTable('users', {
+const users = pgTable('users', {
   id: serial('id').primaryKey(),
   username: varchar('username', { length: 50 }).notNull().unique(),
   email: varchar('email', { length: 100 }).notNull().unique(),
@@ -13,7 +13,7 @@ export const users = pgTable('users', {
 });
 
 // Services table
-export const services = pgTable('services', {
+const services = pgTable('services', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 100 }).notNull(),
   category: varchar('category', { length: 50 }).notNull(),
@@ -26,7 +26,7 @@ export const services = pgTable('services', {
 });
 
 // Bookings table
-export const bookings = pgTable('bookings', {
+const bookings = pgTable('bookings', {
   id: serial('id').primaryKey(),
   userId: integer('user_id').references(() => users.id),
   serviceId: integer('service_id').references(() => services.id),
@@ -40,7 +40,7 @@ export const bookings = pgTable('bookings', {
 });
 
 // Service providers table
-export const serviceProviders = pgTable('service_providers', {
+const serviceProviders = pgTable('service_providers', {
   id: serial('id').primaryKey(),
   userId: integer('user_id').references(() => users.id),
   specialization: varchar('specialization', { length: 100 }).notNull(),
@@ -52,7 +52,7 @@ export const serviceProviders = pgTable('service_providers', {
 });
 
 // Contact inquiries table
-export const contactInquiries = pgTable('contact_inquiries', {
+const contactInquiries = pgTable('contact_inquiries', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 100 }).notNull(),
   email: varchar('email', { length: 100 }).notNull(),
@@ -64,16 +64,16 @@ export const contactInquiries = pgTable('contact_inquiries', {
 });
 
 // Relations
-export const usersRelations = relations(users, ({ many }) => ({
+const usersRelations = relations(users, ({ many }) => ({
   bookings: many(bookings),
   serviceProviders: many(serviceProviders),
 }));
 
-export const servicesRelations = relations(services, ({ many }) => ({
+const servicesRelations = relations(services, ({ many }) => ({
   bookings: many(bookings),
 }));
 
-export const bookingsRelations = relations(bookings, ({ one }) => ({
+const bookingsRelations = relations(bookings, ({ one }) => ({
   user: one(users, {
     fields: [bookings.userId],
     references: [users.id],
@@ -84,21 +84,21 @@ export const bookingsRelations = relations(bookings, ({ one }) => ({
   }),
 }));
 
-export const serviceProvidersRelations = relations(serviceProviders, ({ one }) => ({
+const serviceProvidersRelations = relations(serviceProviders, ({ one }) => ({
   user: one(users, {
     fields: [serviceProviders.userId],
     references: [users.id],
   }),
 }));
 
-// Types
-export type User = typeof users.$inferSelect;
-export type InsertUser = typeof users.$inferInsert;
-export type Service = typeof services.$inferSelect;
-export type InsertService = typeof services.$inferInsert;
-export type Booking = typeof bookings.$inferSelect;
-export type InsertBooking = typeof bookings.$inferInsert;
-export type ServiceProvider = typeof serviceProviders.$inferSelect;
-export type InsertServiceProvider = typeof serviceProviders.$inferInsert;
-export type ContactInquiry = typeof contactInquiries.$inferSelect;
-export type InsertContactInquiry = typeof contactInquiries.$inferInsert;
+module.exports = {
+  users,
+  services,
+  bookings,
+  serviceProviders,
+  contactInquiries,
+  usersRelations,
+  servicesRelations,
+  bookingsRelations,
+  serviceProvidersRelations
+};
