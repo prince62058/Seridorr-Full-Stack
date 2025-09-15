@@ -20,6 +20,7 @@
     "@types/memoizee": "^0.4.12",
     "@types/node": "^24.0.13",
     "@types/pg": "^8.15.4",
+    "@types/ws": "^8.18.1",
     "drizzle-kit": "^0.31.4",
     "drizzle-orm": "^0.44.2",
     "express": "^5.1.0",
